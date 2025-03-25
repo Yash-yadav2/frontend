@@ -118,8 +118,8 @@ const Navbar = () => {
           </div>
         ) : (
           <>
-            <NavLink to="/login" className="bg-white text-black px-4 py-2 rounded-lg">Login</NavLink>
-            <NavLink to="/register" className="bg-green-500 text-white px-4 py-2 rounded-lg">Register</NavLink>
+             <button onClick={toggleDrop} className='bg-[#fff] text-black  text-sm  rounded-md  px-4 py-2'>Login</button>
+               <button onClick={toggleDrop} className='bg-[#33ae33] text-white  text-sm rounded-md  px-4 py-2'>Register</button>
           </>
         )}
       </div>
