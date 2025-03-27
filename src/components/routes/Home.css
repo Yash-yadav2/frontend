@@ -102,6 +102,36 @@
   scale: 0.6;
 }
 
+@media  (max-width: 1150px) {  
+  .faltu{
+    display: none;
+  }
+  .coursel{
+   height: 26vh;
+  }
+  .form{
+    width: 30vw;
+  }
+}
+@media  (max-width: 950px) {  
+  .join{
+    height: 15vh;
+  }
+  .coursel{
+    height: 20vh;
+   }
+   .form{
+    width: 90vw;
+  }
+
+}
+@media  (max-width: 1600px) {  
+  .coursel{
+    height: 16vh;
+   }
+
+}
+
 
 
 .cardsvg svg:hover path{

@@ -7,6 +7,7 @@ import MobileDrop from "./Registration";
 import { FaUserCircle } from "react-icons/fa"; // Profile icon
 import { IoMdLogOut } from "react-icons/io"; // Logout icon
 import { MdEdit } from "react-icons/md"; // Edit Profile icon
+import { login, logout } from "../redux/authSlice";
 
 const Navbar = () => {
 
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -65,16 +67,18 @@ const Navbar = () => {
         </div>
         {/* Right Section - Profile & Buttons */}
       <div className="flex z-10 items-center gap-4">
-      <button className="bg-white  text-black font-bold px-4 py-1 rounded-lg">
-          $0
-        </button>
-        <button className="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-1 rounded-lg">
-          DEPOSIT
-        </button>
+   
        
 
         {/* Profile Section */}
         {user ? (
+          <div>
+             <button className="bg-white hidden text-black font-bold px-4 py-1 rounded-lg">
+             $0
+           </button>
+           <button className="bg-green-500   hover:bg-green-600 text-white font-bold px-4 py-1 rounded-lg">
+             DEPOSIT
+           </button>
           <div className="relative">
             <button onClick={() => setProfileOpen(!profileOpen)} className="relative flex items-center">
               <FaUserCircle size={36} className="text-yellow-400" />
@@ -106,7 +110,7 @@ const Navbar = () => {
 
                 {/* Edit Profile & Logout Buttons */}
                 <div className="flex justify-between bg-yellow-500 p-3 rounded-b-md">
-                  <button onClick={() => navigate("/edit-profile")} className="flex items-center text-[#151414] ">
+                  <button onClick={() => navigate("/edit")} className="flex items-center text-[#151414] ">
                     <MdEdit size={20} className="mr-2" /> EDIT PROFILE
                   </button>
                   <button onClick={handleLogout} className="flex items-center text-[#151414] ">
@@ -115,6 +119,7 @@ const Navbar = () => {
                 </div>
               </div>
             )}
+          </div>
           </div>
         ) : (
           <>
