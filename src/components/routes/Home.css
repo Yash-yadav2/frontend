@@ -112,6 +112,13 @@
   .form{
     width: 30vw;
   }
+  .cardhide{
+    display: none;
+  }
+  .sidecards{
+    display: none;
+  }
+ 
 }
 @media  (max-width: 950px) {  
   .join{
@@ -127,7 +134,7 @@
 }
 @media  (max-width: 1600px) {  
   .coursel{
-    height: 16vh;
+    height: 25vw;
    }
 
 }

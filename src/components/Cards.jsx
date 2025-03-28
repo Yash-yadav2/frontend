@@ -119,7 +119,7 @@ const GameCards = () => {
         <input
           type="text"
           placeholder="Search games..."
-          className="px-4 py-2 rounded-lg text-black md:w-[15vw] w-[40vw] md:h-[6vh] h-[4vh] border-2  focus:outline-none focus:ring-2 "
+          className="px-4 py-2 rounded-lg text-black md:w-[15vw] w-[40vw] md:h-[2.5vw] h-[5vw] border-2  focus:outline-none focus:ring-2 "
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

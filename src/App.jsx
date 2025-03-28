@@ -13,6 +13,7 @@ import Finance from "./components/routes/Finance";
 import Profile from "./components/routes/Profile";
 import EditProfile from "./components/routes/EditProfile";
 import AdminLogin from "./components/routes/AdminLogin";
+import Payment from "./components/routes/Payment";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit" element={<EditProfile />} />
+          <Route path="/payment" element={<Payment />} />
           {/* <Route
           path="/edit"
           element={
