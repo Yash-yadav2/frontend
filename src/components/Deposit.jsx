@@ -10,6 +10,7 @@ const paymentMethods = [
     image: "/images/bank.png", 
     min: 10, 
     max: 5000, 
+    paymentType: "Bank",
     accountHolderName: "John Doe", 
     accountNumber: "1234567890" 
   },
@@ -18,6 +19,7 @@ const paymentMethods = [
     image: "/images/usdt.png", 
     min: 20, 
     max: 10000, 
+    paymentType: "Bank",
     accountHolderName: "Alice Smith", 
     accountNumber: "USDT-9876543210" 
   },
@@ -26,6 +28,7 @@ const paymentMethods = [
     image: "/images/btc.png", 
     min: 50, 
     max: 50000, 
+    paymentType: "crypto",
     accountHolderName: "Bob Johnson", 
     accountNumber: "BTC-1234-5678-9012" 
   }

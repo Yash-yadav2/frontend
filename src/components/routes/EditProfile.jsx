@@ -12,6 +12,9 @@ import Deposit from "../Deposit";
 import Withdrawal from "../Withdrawal";
 import TransactionHistory from "../TransactionHistory";
 import Cashback from "../Cashback";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
+import Navfot from "../Navfot";
 
 export default function UserDashboard() {
   const [activeTab, setActiveTab] = useState("edit-profile");
@@ -48,9 +51,14 @@ export default function UserDashboard() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-900 text-white">
+    <>
+    <Navbar/>
+    <div className="flex min-h-screen bg-[#151414] p-6 pl-20 text-white">
       <Sidebar setActiveTab={setActiveTab} />
-      <div className="flex-1 p-8">{renderContent()}</div>
+      <div className="flex-1 p-0">{renderContent()}</div>
     </div>
+    <Footer/>
+    <Navfot/>
+    </>
   );
 }

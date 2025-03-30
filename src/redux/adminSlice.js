@@ -1,54 +1,108 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
 
-// 🔹 Fetch Users (Admin)
-export const fetchUsers = createAsyncThunk("admin/fetchUsers", async (_, { rejectWithValue }) => {
+// Retrieve user from localStorage
+const storedUser = localStorage.getItem("user");
+const initialUser = storedUser && storedUser !== "undefined" ? JSON.parse(storedUser) : null;
+
+const initialState = {
+  user: initialUser,
+  isAuthenticated: !!initialUser,
+  loading: false,
+  error: null,
+};
+
+// 🔹 **Login User**
+export const loginUser = createAsyncThunk(
+  "auth/loginUser",
+  async (credentials, { rejectWithValue }) => {
     try {
-        const res = await axios.get("/admin/users");
-        return res.data;
-    } catch (err) {
-        return rejectWithValue(err.response?.data?.message || "Error fetching users");
+      const response = await axios.post("/auth/login", credentials);
+      return response.data.user; // Response contains user object with role
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || "Login failed");
     }
-});
+  }
+);
 
-// 🔹 Update User Role
-export const updateUserRole = createAsyncThunk("admin/updateUserRole", async ({ id, role }, { rejectWithValue }) => {
+// 🔹 **Register User**
+export const registerUser = createAsyncThunk(
+  "auth/registerUser",
+  async (userData, { rejectWithValue }) => {
     try {
-        const res = await axios.put(`/admin/users/${id}`, { role });
-        return res.data;
-    } catch (err) {
-        return rejectWithValue(err.response?.data?.message || "Error updating user");
+      const response = await axios.post("/auth/register", userData);
+      return response.data.user;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || "Registration failed");
     }
-});
+  }
+);
 
-// 🔹 Delete User
-export const deleteUser = createAsyncThunk("admin/deleteUser", async (id, { rejectWithValue }) => {
+// 🔹 **Logout User**
+export const logoutUser = createAsyncThunk(
+  "auth/logoutUser",
+  async (_, { rejectWithValue }) => {
     try {
-        await axios.delete(`/admin/users/${id}`);
-        return id;
-    } catch (err) {
-        return rejectWithValue(err.response?.data?.message || "Error deleting user");
+      await axios.get("/auth/logout");
+      return null;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || "Logout failed");
     }
+  }
+);
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    logout: (state) => {
+      state.user = null;
+      state.isAuthenticated = false;
+      localStorage.removeItem("user");
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      // 🔹 Login Cases
+      .addCase(loginUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.isAuthenticated = true;
+        localStorage.setItem("user", JSON.stringify(action.payload));
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      // 🔹 Register Cases
+      .addCase(registerUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.isAuthenticated = true;
+        localStorage.setItem("user", JSON.stringify(action.payload));
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      // 🔹 Logout Cases
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.user = null;
+        state.isAuthenticated = false;
+        localStorage.removeItem("user");
+      });
+  },
 });
 
-const adminSlice = createSlice({
-    name: "admin",
-    initialState: { users: [], loading: false, error: null },
-    reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchUsers.pending, (state) => { state.loading = true; })
-            .addCase(fetchUsers.fulfilled, (state, action) => { state.loading = false; state.users = action.payload; })
-            .addCase(fetchUsers.rejected, (state, action) => { state.loading = false; state.error = action.payload; })
-
-            .addCase(updateUserRole.fulfilled, (state, action) => {
-                state.users = state.users.map((user) => (user._id === action.payload.user._id ? action.payload.user : user));
-            })
-
-            .addCase(deleteUser.fulfilled, (state, action) => {
-                state.users = state.users.filter((user) => user._id !== action.payload);
-            });
-    }
-});
-
-export default adminSlice.reducer;
+export const { logout } = authSlice.actions;
+export default authSlice.reducer;

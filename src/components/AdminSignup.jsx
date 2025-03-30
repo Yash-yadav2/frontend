@@ -1,85 +1,125 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Input } from "/src/components/ui/input";
 import { Button } from "/src/components/ui/button";
+import { loginUser, registerUser } from "../redux/authSlice";
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({ email: "", password: "", role: "admin" });
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    phone: "",
+    country: "",
+    role: "user", // ✅ Default role selection
+  });
+
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { loading, error: authError } = useSelector((state) => state.auth);
 
-  const toggleAuthMode = () => setIsLogin(!isLogin);
-
-  // Basic input validation
-  const validateInputs = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setError("Invalid email format");
-      return false;
-    }
-    if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters long");
-      return false;
-    }
-    setError("");
-    return true;
-  };
-
+  // Handle Form Submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateInputs()) return;
-    alert(`${isLogin ? "Logged In" : "Signed Up"} successfully!`);
+
+    if (isLogin) {
+      dispatch(loginUser(formData))
+        .unwrap()
+        .then((res) => {
+          if (res.user.role === "admin") navigate("/admin");
+          else if (res.user.role === "finance") navigate("/finance");
+          else navigate("/");
+        })
+        .catch((err) => setError(err.message || "Login failed"));
+    } else {
+      dispatch(registerUser(formData))
+        .unwrap()
+        .then(() => navigate("/")) // Default redirect after signup
+        .catch((err) => setError(err.message || "Signup failed"));
+    }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md transform transition-all duration-500 hover:scale-105">
-        <h2 className="text-3xl font-extrabold text-center text-gray-800">{isLogin ? "Admin Login" : "Admin Signup"}</h2>
+      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+        <h2 className="text-3xl font-extrabold text-center">
+          {isLogin ? "Login" : "Signup"}
+        </h2>
 
-        {error && <p className="text-red-500 text-sm text-center mt-2">{error}</p>}
+        {error && <p className="text-red-500 text-center mt-2">{error}</p>}
+        {authError && <p className="text-red-500 text-center mt-2">{authError}</p>}
 
         <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <>
+              <div className="mt-5 flex space-x-2">
+                <Input
+                  type="text"
+                  placeholder="First name"
+                  value={formData.firstName}
+                  onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                  required
+                />
+                <Input
+                  type="text"
+                  placeholder="Last name"
+                  value={formData.lastName}
+                  onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                  required
+                />
+              </div>
+            </>
+          )}
+
           <div className="mt-5">
-            <label className="block text-gray-700 font-semibold">Email</label>
+            <label className="block font-semibold">Role</label>
+            <select
+              value={formData.role}
+              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+              className="w-full p-3 border border-gray-300 rounded-md mt-1"
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+              <option value="finance">Finance Admin</option>
+            </select>
+          </div>
+
+          <div className="mt-5">
+            <label className="block font-semibold">Email</label>
             <Input
               type="email"
               placeholder="Enter your email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full p-3 border border-gray-300 rounded-md mt-1 focus:ring-2 focus:ring-blue-500"
+              required
             />
           </div>
 
           <div className="mt-5">
-            <label className="block text-gray-700 font-semibold">Password</label>
+            <label className="block font-semibold">Password</label>
             <Input
               type="password"
               placeholder="Enter your password"
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              className="w-full p-3 border border-gray-300 rounded-md mt-1 focus:ring-2 focus:ring-blue-500"
+              required
             />
           </div>
 
-          {!isLogin && (
-            <div className="mt-5">
-              <label className="block text-gray-700 font-semibold">Role</label>
-              <select
-                value={formData.role}
-                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                className="w-full p-3 border border-gray-300 rounded-md mt-1 focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="admin">Main Admin</option>
-                <option value="finance">Finance Admin</option>
-              </select>
-            </div>
-          )}
-
-          <Button type="submit" className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
-            {isLogin ? "Login" : "Signup"}
+          <Button
+            type="submit"
+            className="w-full mt-6 bg-blue-600 text-white py-3 rounded-lg"
+            disabled={loading}
+          >
+            {loading ? "Processing..." : isLogin ? "Login" : "Signup"}
           </Button>
         </form>
 
-        <p className="text-center mt-6 text-gray-500 cursor-pointer hover:underline" onClick={toggleAuthMode}>
+        <p className="text-center mt-6 text-gray-500 cursor-pointer hover:underline" onClick={() => setIsLogin(!isLogin)}>
           {isLogin ? "Don't have an account? Signup" : "Already have an account? Login"}
         </p>
       </div>
