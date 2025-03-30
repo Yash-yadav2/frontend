@@ -53,9 +53,9 @@ export default function UserDashboard() {
   return (
     <>
     <Navbar/>
-    <div className="flex min-h-screen bg-gray-900 text-white">
+    <div className="flex min-h-screen bg-[#151414] p-6 pl-20 text-white">
       <Sidebar setActiveTab={setActiveTab} />
-      <div className="flex-1 p-8">{renderContent()}</div>
+      <div className="flex-1 p-0">{renderContent()}</div>
     </div>
     <Footer/>
     <Navfot/>
