@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./components/routes/Home";
@@ -8,15 +9,32 @@ import InPlay from "./components/routes/InPlay";
 import LiveCasino from "./components/routes/LiveCasino";
 import Bonus from "./components/routes/Bonus";
 import LoyaltyProgram from "./components/routes/LoyaltyProgram";
-import Admin from "./components/routes/Admin";
-import Finance from "./components/routes/Finance";
 import Profile from "./components/routes/Profile";
 import EditProfile from "./components/routes/EditProfile";
-import AdminLogin from "./components/routes/AdminLogin";
 import Payment from "./components/routes/Payment";
+import Crypto from "./components/routes/Crypto";
+import Vipayment from "./components/routes/Vipayment";
+import Superbank from "./components/routes/Superbank";
+import Papara from "./components/routes/Papara";
+import Loader from "./components/Loader";
 
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  
   return (
     <>
       <Router>
@@ -28,12 +46,15 @@ function App() {
           <Route path="/LiveCasino" element={<LiveCasino />} />
           <Route path="/Bonus" element={<Bonus />} />
           <Route path="/LoyaltyProgram" element={<LoyaltyProgram />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/finance" element={<Finance />} />
-          <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/edit" element={<EditProfile />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/edit" element={
+            <EditProfile />} />
+          <Route path="/payment" element={
+            <Payment />} />
+          <Route path="/crypto" element={< Crypto />} />
+          <Route path="/vipayment" element={< Vipayment />} />
+          <Route path="/superbank" element={< Superbank />} />
+          <Route path="/papara" element={< Papara/>} />
           {/* <Route
           path="/edit"
           element={

@@ -23,32 +23,30 @@ const categories = [
 ];
 
 const games = [
-  { name: "Gates of Casibom", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/gates_of_casibom_1000.jpg" },
-  { name: "Gates of Casibom", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/gates_of_casibom_1000.jpg" },
-  { name: "Gates of Casibom", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/gates_of_casibom_1000.jpg" },
-  { name: "Gates of Casibom", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/gates_of_casibom_1000.jpg" },
-  { name: "Gates of Casibom", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/gates_of_casibom_1000.jpg" },
-  { name: "Casibom Bonanza 1000", category: "New Games", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/sugar_rush_1000.jpg" },
-  { name: "Casibom Bonanza 1000", category: "New Games", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/sugar_rush_1000.jpg" },
-  { name: "Casibom Bonanza 1000", category: "New Games", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/sugar_rush_1000.jpg" },
-  { name: "Casibom Bonanza 1000", category: "New Games", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/sugar_rush_1000.jpg" },
-  { name: "Casibom Bonanza 1000", category: "New Games", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/sugar_rush_1000.jpg" },
-  { name: "Casibom Bonanza 1000", category: "New Games", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/sugar_rush_1000.jpg" },
-  { name: "Sweet Bonanza", category: "Slots", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/casibom_bonanza_1000.jpg" },
-  { name: "Sweet Bonanza", category: "Slots", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/casibom_bonanza_1000.jpg" },
-  { name: "Sweet Bonanza", category: "Slots", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/casibom_bonanza_1000.jpg" },
-  { name: "Sweet Bonanza", category: "Slots", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/casibom_bonanza_1000.jpg" },
-  { name: "Gates of Olympus", category: "Drops & Wins", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/sweet_bonanza_1000.jpg" },
-  { name: "Gates of Olympus", category: "Drops & Wins", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/sweet_bonanza_1000.jpg" },
-  { name: "Gates of Olympus", category: "Drops & Wins", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/sweet_bonanza_1000.jpg" },
-  { name: "Gates of Olympus", category: "Drops & Wins", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/sweet_bonanza_1000.jpg" },
-  { name: "Gates of Olympus", category: "Drops & Wins", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/sweet_bonanza_1000.jpg" },
-  { name: "JetX", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/big_bass_christmas_bash.jpg" },
-  { name: "JetX", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/big_bass_christmas_bash.jpg" },
-  { name: "JetX", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/big_bass_christmas_bash.jpg" },
-  { name: "JetX", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/big_bass_christmas_bash.jpg" },
-  { name: "JetX", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/big_bass_christmas_bash.jpg" },
-  { name: "JetX", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/big_bass_christmas_bash.jpg" },
+  { name: "Gates of Casibom 1000", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/gates_of_casibom_1000.jpg" },
+  { name: "Casibom Bonanza 1000", category: "Slots", company: "Pragmatic Play", image: "https://agstatic.com/games/pragmaticplay/315/casibom_bonanza_1000.jpg" },
+  { name: "Sugar Rush 1000", category: "New Games", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/sugar_rush_1000.jpg" },
+  { name: "Sweet Bonanza 1000", category: "Popular", company: "Casibom", image: "https://casibom.com/static/images/games_thumb/960/2848904.jpg" },
+  { name: "Big Bass Christmas Bash", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/big_bass_christmas_bash.jpg" },
+  { name: "Casibom Rush", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/casibom_rush.jpg" },
+  { name: "Casibom Rush 1000", category: "Popular", company: "Casibom", image: "https://agstatic.com/games/pragmaticplay/315/casibom_rush_1000.jpg" },
+  { name: "Gates of Aztec", category: "New Games", company: "Casibom", image: "https://casibom.com/static/images/games_thumb/960/2698894.jpg" },
+  { name: "Crash Originals", category: "New Games", company: "Casibom", image: "https://casibom.com/static/images/games_thumb/777/2668681.jpg" },
+  { name: "Sweet Bonanza", category: "New Games", company: "Casibom", image: "https://casibom.com/static/images/games_thumb/960/1535302.jpg" },
+  { name: "Gates of Olympus", category: "New Games", company: "Casibom", image: "https://casibom.com/static/images/games_thumb/960/1911714.jpg" },
+  { name: "JetX", category: "New Games", company: "Casibom", image: "https://casibom.com/static/images/games_thumb/869/2338680.jpg" },
+  { name: "16 Coins", category: "Slots", company: "Pragmatic Play", image: "https://agstatic.com/games/wazdan/315/16_coins.jpg" },
+  { name: "Mines Originals", category: "Slots", company: "Pragmatic Play", image: "https://casibom.com/static/images/games_thumb/777/2372334.jpg" },
+  { name: "Casibom Istanbul Megaways", category: "Slots", company: "Pragmatic Play", image: "https://agstatic.com/games/redtigergaming/315/casibom_istanbul_megaways.jpg" },
+  { name: "Dice Originals", category: "Drops & Wins", company: "Pragmatic Play", image: "https://casibom.com/static/images/games_thumb/777/2372337.jpg" },
+  { name: "Keno Originals", category: "Drops & Wins", company: "Pragmatic Play", image: "https://casibom.com/static/images/games_thumb/777/2560449.jpg" },
+  { name: "Plinko Originals", category: "Drops & Wins", company: "Pragmatic Play", image: "https://casibom.com/static/images/games_thumb/777/2372331.jpg" },
+  { name: "40 Super Hot Bell Link Casibom", category: "Drops & Wins", company: "Pragmatic Play", image: "https://agstatic.com/games/egtdigital/315/40_super_hot_bell_link_casibom.jpg" },
+  { name: "Hermes Fortunes Casibom", category: "Drops & Wins", company: "Pragmatic Play", image: "https://agstatic.com/games/egtdigital/315/hermes_fortunes_casibom.jpg" },
+  { name: "Starlight Princess 1000", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/starlight_princess_1000.jpg" },
+  { name: "Sugar Rush", category: "Table Games", company: "Smartsoft", image: "https://casibom.com/static/images/games_thumb/960/2300200.jpg" },
+  { name: "Casibom Bonanza", category: "Table Games", company: "Smartsoft", image: "https://agstatic.com/games/pragmaticplay/315/casibom_bonanza.jpg" },
+  { name: "JeGates of CasibomtX", category: "Table Games", company: "Smartsoft", image: "https://casibom.com/static/images/games_thumb/960/2825220.jpg" },
 ];
 
 const GameCards = () => {
@@ -106,7 +104,7 @@ const GameCards = () => {
       <div className="flex flex-wrapx items-center justify-between mb-0 gap-3">
         <select
         
-          className="flex items-center  justify-between md:w-56 w-[45vw] bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 rounded-md shadow-md border border-black"
+          className="flex items-center  justify-between md:w-56 w-[45vw] bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-1 md:py-2 px-4 rounded-md shadow-md border border-black"
           value={selectedCompany}
           onChange={(e) => setSelectedCompany(e.target.value)}
         >
@@ -119,7 +117,7 @@ const GameCards = () => {
         <input
           type="text"
           placeholder="Search games..."
-          className="px-4 py-2 rounded-lg text-black md:w-[15vw] w-[40vw] md:h-[2.5vw] h-[5vw] border-2  focus:outline-none focus:ring-2 "
+          className="px-4 py-4 rounded-lg text-black md:w-[15vw] w-[40vw] md:h-[2.5vw] h-[5vw] border-2  focus:outline-none focus:ring-2 "
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -133,7 +131,7 @@ const GameCards = () => {
             
               <div className="absolute inset-0 bg-[#151414] bg-opacity-70 flex flex-col justify-center gap-0 cardhide md:gap-10 items-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="h-5 w-full"></div>
-                <h2>Gates of Casibom - 1000</h2>
+                <h2>{game.name}</h2>
                 <div>
                 <button  onClick={() => setIsOpen(true)} className="px-7 py-1 text-[0.85vw] bg-yellow-500 text-black  rounded-[0.3vw] m-2">Play</button>
                 <button  onClick={() => setIsOpen(true)} className="px-7 py-1 text-[0.85vw] bg-gray-700 text-black hover:bg-yellow-500  rounded-[0.3vw] m-2">Demo</button>
@@ -144,6 +142,9 @@ const GameCards = () => {
         ) : (
           <p className="text-center text-gray-400 col-span-full">No games found.</p>
         )}
+      </div>
+      <div className="flex justify-center mt-4 pb-4 items-center">
+      <button onClick={() => setIsOpen(true)} className="px-7 py-1 text-[0.95vw] bg-yellow-500 text-black font-semibold  rounded-[0.3vw]">load more</button>
       </div>
     </div>
   );

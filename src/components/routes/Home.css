@@ -109,6 +109,9 @@
   .coursel{
    height: 26vh;
   }
+  .nav-center{
+    display: none;
+  }
   .form{
     width: 30vw;
   }

@@ -1,25 +1,23 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import LoginForm from "./LoginForm";
+
 
 const slides = [
   { id: 1, image: "/images/casibom-bonanza-1000-pc.jpg" },
   { id: 2, image: "/images/VIP_Bell_Link_Desktop-scaled.jpg" },
-  { id: 3, image: "/images/VIP_Bell_Link_Desktop-scaled.jpg" },
-  { id: 4, image: "/images/casibom-bonanza-pc.jpg" },
-  { id: 5, image: "/images/casibom-bonanza-pc.jpg" },
-  { id: 6, image: "/images/casibom-bonanza-pc.jpg" },
-  { id: 7, image: "/images/casibom-bonanza-pc.jpg" },
-  { id: 8, image: "/images/casibom-bonanza-pc.jpg" },
-  { id: 9, image: "/images/casibom-bonanza-pc.jpg" },
   { id: 10, image: "/images/casibom-bonanza-pc.jpg" },
   { id: 11, image: "/images/VIP_Bell_Link_Desktop-scaled.jpg" },
-  { id: 12, image: "/images/VIP_Bell_Link_Desktop-scaled.jpg" },
 ];
 
+
 const Carousel = () => {
+const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="coursel bg-[#151414]  h-[20vh] md:h-[51vh] w-full">
     <Swiper
@@ -43,13 +41,15 @@ const Carousel = () => {
 
           {/* Centered Button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <button className="bg-yellow-500  text-black font-bold  rounded-[0.5vw]  shadow-lg">
+            <button onClick={() => setIsOpen(true)} className="bg-yellow-500  text-black font-bold  rounded-[0.5vw]  shadow-lg">
             HEMEN OYNA
             </button>
           </div>
         </SwiperSlide>
       ))}
     </Swiper>
+{isOpen && <LoginForm onClose={() => setIsOpen(false)} />}
+
     </div>
   );
 };

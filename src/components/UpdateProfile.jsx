@@ -67,7 +67,7 @@ export default function EditProfile() {
           </div>
           <div>
             <label className="block text-gray-300">Mobile Number</label>
-            <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} className="w-full p-2 bg-white border border-gray-600 rounded text-black" />
+            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-2 bg-white border border-gray-600 rounded text-black" />
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export default function EditProfile() {
           </div>
           <div>
             <label className="block text-gray-300">Sex</label>
-            <select name="sex" value={formData.sex} onChange={handleChange} className="w-full p-2 bg-white border border-gray-600 rounded text-black">
+            <select name="gender" value={formData.gender} onChange={handleChange} className="w-full p-2 bg-white border border-gray-600 rounded text-black">
               <option>Not Selected</option>
               <option>Male</option>
               <option>Female</option>
@@ -100,7 +100,7 @@ export default function EditProfile() {
           <button type="button" className="bg-gray-500 px-4 py-2 rounded text-white">
             Cancel
           </button>
-          <button type="submit" className="bg-yellow-500 px-4 py-2 rounded text-black">
+          <button onClick={handleSubmit} type="submit" className="bg-yellow-500 px-4 py-2 rounded text-black">
             Save Changes
           </button>
         </div>
