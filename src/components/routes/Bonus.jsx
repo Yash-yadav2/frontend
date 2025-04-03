@@ -5,21 +5,22 @@ import Footer from '../Footer'
 const Bonus = () => {
 
   const bonus = [
-    { image: "/public/bonus/Snip20201029_27.png", title: "3rd Welcome Bonus Casino" },
-    { image: "/public/bonus/Snip20210901_57.png", title: "3rd Welcome Bonus Sports" },
-    { image: "/bonus/Snip20210901_55.png", title: "2nd Welcome Bonus Casino" },
-    { image: "/public/bonus/Snip20201102_40-min.png", title: "2nd Welcome Bonus Casino" },
-    { image: "/public/bonus/2021-09-01-14.53.08-e1630504506997.jpg", title: "2nd Welcome Bonus Casino" },
-    { image: "/bonus/Snip20210901_55.png", title: "2nd Welcome Bonus Casino" },
-    { image: "/bonus/Snip20210901_55.png", title: "2nd Welcome Bonus Casino" },
-    { image: "/public/bonus/Snip20210901_57.png", title: "3rd Welcome Bonus Sports" },
-    { image: "/public/bonus/2021-09-01-14.53.08-e1630504506997.jpg", title: "2nd Welcome Bonus Casino" },
-    { image: "/bonus/Snip20210901_55.png", title: "2nd Welcome Bonus Casino" },
-    { image: "/public/bonus/Snip20201029_27.png", title: "3rd Welcome Bonus Casino" },
-    { image: "/bonus/Snip20210901_55.png", title: "2nd Welcome Bonus Casino" },
-    { image: "/public/bonus/Snip20201102_40-min.png", title: "2nd Welcome Bonus Casino" },
-    { image: "/public/bonus/Snip20201029_27.png", title: "3rd Welcome Bonus Casino" },
-
+    { image: "/public/bonus/Snip20201029_27.png", title: "3RD WELCOME BONUS CASINO" },
+    { image: "/public/bonus/Snip20210901_57.png", title: "3RD WELCOME BONUS SPORTS" },
+    { image: "/public/bonus/Snip20201029_27.png", title: "2ND WELCOME BONUS CASINO" },
+    { image: "/public/bonus/2021-09-01-14.53.08-e1630504506997.jpg", title: "1ST WELCOME BONUS SPORTS" },
+    { image: "/public/bonus/Snip20201102_40-min.png", title: "[BRONZE] 10% BONUS CASINO" },
+    { image: "/bonus/Snip20210901_55.png", title: "[BRONZE] 10% DAILY SPORTS BONUS" },
+    { image: "/public/bonus/Snip20201102_40-min.png", title: "[DIAMOND] 25% BONUS CASINO" },
+    { image: "/public/bonus/Snip20210901_55.png", title: "[DIAMOND] 25% DAILY SPORTS BONUS" },
+    { image: "/public/bonus/Snip20201102_40-min.png", title: "[GOLD] 15% DAILY CASINO BONUS" },
+    { image: "/bonus/Snip20210901_55.png", title: "[GOLD] 15% DAILY SPORTS BONUS" },
+    { image: "/public/bonus/Snip20201102_40-min.png", title: "[PLATINUM] 20% DAILY CASINO BONUS" },
+    { image: "/bonus/Snip20210901_55.png", title: "[PLATINUM] 20% DAILY SPORTS BONUS" },
+    { image: "/public/bonus/Snip20201102_40-min.png", title: "[SILVER] 10% DAILY CASINO BONUS" },
+    { image: "/public/bonus/Snip20210901_55.png", title: "[SILVER] 10% DAILY SPORTS BONUS" },
+    { image: "/public/bonus/Snip20210901_57.png", title: "2ND WELCOME BONUS SPORTS" },
+    { image: "/public/bonus/Snip20201029_27.png", title: "1ST WELCOME BONUS CASINO" },
 
 
 

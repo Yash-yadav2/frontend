@@ -6,12 +6,14 @@ import './Home.css'
 import Navfot from '../Navfot'
 import Join from '../Join'
 import MainPageCards from '../MainPageCards'
+import Winner from '../winners'
 const Home = () => {
   return (
     <div className='bg-[#151414] h-screen w-full'>
       <Navbar />
       <Hero />
       <Join />
+      <Winner/>
       <MainPageCards />
       <Footer />
       <Navfot />

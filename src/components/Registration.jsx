@@ -17,6 +17,7 @@ const Registration = ({ isOpen }) => {
     password: "",
     currency: "TRY",
     countryCode: "+1",
+    role: "user",
     phone: "",
     isAdult: false,
     termsAccepted: false,
@@ -26,6 +27,7 @@ const Registration = ({ isOpen }) => {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
+    role: "user",
   });
   const [error, setError] = useState("");
 
@@ -57,7 +59,6 @@ const Registration = ({ isOpen }) => {
     try {
       const res = await axios.post("/auth/register", formData);
       dispatch(login({ user: res.data.user, token: res.data.token }));
-      alert("Registration successful!");
       navigate("/Casino");
     } catch (error) {
       console.error("Registration error:", error.response?.data || error.message);
@@ -71,7 +72,6 @@ const Registration = ({ isOpen }) => {
     try {
       const res = await axios.post("/auth/login", loginData);
       dispatch(login({ user: res.data.user, token: res.data.token }));
-      alert("Login successful!");
       navigate("/Casino");
     } catch (err) {
       setError(err.response?.data?.message || "Invalid credentials");
@@ -175,9 +175,9 @@ const Registration = ({ isOpen }) => {
               </select>
               <input
                 type="text"
-                name="phoneNumber"
+                name="phone"
                 placeholder="Phone number"
-                value={formData.phoneNumber}
+                value={formData.phone}
                 onChange={handleChange}
                 required
                 className="w-2/3 p-2 rounded-md bg-white border text-black border-gray-700 focus:ring-2 focus:ring-yellow-400"

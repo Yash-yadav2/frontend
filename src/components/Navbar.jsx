@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import loaderGif from "../assets/logo-animated.gif"; 
+
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "../axios";
 import MobileDrop from "./Registration";
@@ -7,6 +9,8 @@ import { IoMdLogOut } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/authSlice";
+import Deposite from "./Deposit";
+
 
 const Navbar = () => {
   const [DropOpen, setDropOpen] = useState(false);
@@ -25,54 +29,57 @@ const Navbar = () => {
     try {
       await axios.get("/auth/logout");
       dispatch(logout());
-      alert("Logged out successfully!");
       navigate("/");
     } catch (err) {
       alert("Logout failed!");
     }
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [randomNum, setRandomNum] = useState((Math.random() * 0.5).toFixed(2));
+
   return (
     <div>
       {DropOpen && <MobileDrop isOpen={DropOpen} toggleDrop={toggleDrop} />}
       <div className="navbar flex justify-between text-white items-center">
-        <div>
-          {/* Logo SVG here */}
-          <svg width="137" height="40" viewBox="0 0 137 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* ...SVG content... */}
-          </svg>
+        <div className="flex h-5 items-center justify-center overflow-hidden">
+        <img src={loaderGif} alt='casibom' width={200} height={100} />
+         
         </div>
         <div>
-          <ul className="flex gap-1 uppercase text-[0.93vw]">
+          <ul className="flex gap-1 nav-center uppercase text-[0.93vw]">
             <div className="transition-all hover:border-[1px] py-[0.5vw] px-[1.2vw] rounded-lg border-[#fdb203]">
               <NavLink to="/sports">sports</NavLink>
             </div>
             <div className="transition-all hover:border-[1px] py-[0.5vw] px-[1.2vw] rounded-lg border-[#fdb203]">
-              <NavLink to="/InPlay">CANLI BAHİS</NavLink>
+              <NavLink to="/InPlay">In Play</NavLink>
             </div>
             <div className="transition-all hover:border-[1px] py-[0.5vw] px-[1.2vw] rounded-lg border-[#fdb203]">
               <NavLink to="/Casino">Casino</NavLink>
             </div>
             <div className="transition-all hover:border-[1px] py-[0.5vw] px-[1.2vw] rounded-lg border-[#fdb203]">
-              <NavLink to="/LiveCasino">Canlı Casino</NavLink>
+              <NavLink to="/LiveCasino">Live Casino</NavLink>
             </div>
             <div className="transition-all hover:border-[1px] py-[0.5vw] px-[1.2vw] rounded-lg border-[#fdb203]">
-              <NavLink to="/Bonus">Bonuslar</NavLink>
+              <NavLink to="/Bonus">Bonuses</NavLink>
             </div>
             <div className="transition-all hover:border-[1px] py-[0.5vw] px-[1.2vw] rounded-lg border-[#fdb203]">
-              <NavLink to="/LoyaltyProgram">VIP PROGRAMI</NavLink>
+              <NavLink to="/LoyaltyProgram">Loyalty Program</NavLink>
             </div>
           </ul>
         </div>
+
+        {isOpen && <Deposite onClose={() => setIsOpen(false)} />}
+
 
         {/* Right Section - Authentication / Profile */}
         <div className="flex items-center gap-4 z-10">
           {user ? (
             <div className="flex items-center gap-4">
-              <button className="bg-white hidden text-black font-bold px-4 py-1 rounded-lg">
-                $0
+              <button onClick={() => setIsOpen(true)}  className="bg-white  text-black font-bold px-4 py-1 rounded-lg">
+                {randomNum}
               </button>
-              <button className="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-1 rounded-lg">
+              <button onClick={() => setIsOpen(true)}   className="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-1 rounded-lg">
                 DEPOSIT
               </button>
               <div className="relative">
@@ -83,11 +90,11 @@ const Navbar = () => {
                   <FaUserCircle size={36} className="text-yellow-400" />
                 </button>
                 {profileOpen && (
-                  <div className="absolute right-0 mt-2 w-80 bg-black/90 text-white rounded-lg shadow-md">
+                  <div className="absolute  right-0 mt-2 w-80 bg-black/75  text-white rounded-lg shadow-md">
                     <div className="bg-yellow-500 text-black text-center font-bold py-2 rounded-t-md">
                       {user.user.firstName} {user.user.lastName}
                     </div>
-                    <div className="p-4">
+                    <div className="p-4 flex flex-col gap-3">
                       <p className="text-white flex justify-between items-center text-sm">
                         MESSAGES: <span className="text-gray-500">NO MESSAGES</span>
                       </p>

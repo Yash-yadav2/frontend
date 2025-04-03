@@ -6,10 +6,10 @@ export const createTransaction = createAsyncThunk(
   "transaction/create",
   async (transactionData, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/transactions/create", transactionData);
+      const response = await axios.post("/transactions/create", transactionData, { withCredentials: true },);
       return response.data.transaction;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || "Transaction failed");
+      return rejectWithValue(error.response?.data?.message || "Transaction sclice");
     }
   }
 );
@@ -19,7 +19,7 @@ export const fetchUserTransactions = createAsyncThunk(
   "transaction/fetchUser",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("/transactions/user");
+      const response = await axios.get("/transactions/user", { withCredentials: true });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || "Failed to fetch transactions");

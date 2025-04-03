@@ -41,7 +41,7 @@ const MainPageCards = () => {
         <div className=' bg-[#1c1a19] p-1 rounded-xl flex  justify-center items-center gap-2'>
         <div className='flex flex-col gap-10 h-[40vw] w-[15%] sidecards justify-center rounded-md  items-center'>
         <div  className="relative  p-3 h-1/2 w-full rounded-lg  group">
-              <img  src='/cardimages/40_zodiac_wheel_bell_link.jpg' alt='' className="rounded-md h-full w-full object-cover " />
+              <img  src='/cardimages/title-popular-bg-v2-tr.png' alt='' className="rounded-md h-full w-full object-cover " />
             
               <div className="absolute inset-0 bg-[#151414] bg-opacity-0 flex flex-col justify-center gap-0 cardhide rounded-2xl overflow-hidden md:gap-10 items-center ">
                 <div className="h-5 w-full"></div>
@@ -52,7 +52,7 @@ const MainPageCards = () => {
               </div>
             </div>
             <div  className="relative  p-3 h-1/2 w-full rounded-lg  group">
-              <img  src='/cardimages/40_zodiac_wheel_bell_link.jpg' alt='' className="rounded-md h-full w-full object-cover " />
+              <img  src='/cardimages/title-live-bg-v3.png' alt='' className="rounded-md h-full w-full object-cover " />
             
               <div className="absolute inset-0 bg-[#151414] bg-opacity-0 flex flex-col justify-center gap-0 cardhide rounded-2xl overflow-hidden md:gap-10 items-center ">
                 <div className="h-5 w-full"></div>
