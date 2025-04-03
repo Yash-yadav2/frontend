@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Set the base URL for all requests
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+axios.defaults.baseURL = 'http://80.78.24.212:5000/api';
 
 // Enable sending credentials (cookies, authentication headers, etc.)
 axios.defaults.withCredentials = true;
